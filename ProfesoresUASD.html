@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<head>
+     <link rel="stylesheet" href="styles.css">
+    <title> Profesores UASD</title>
+</head>
+<link rel="icon" href="logoGUIAUNI.png" type="image/png">
+
+<header>
+    <a href="index.html">
+    <img src="logoGUIAUNI.png" alt="logo oficial " width="150">
+    </a>
+</header>
+
+<body>
+
+<h1>Profesores UASD</h1>
+
+<input type="text" id="buscador" placeholder="Buscar profesor...">
+
+<div id="listaProfesores"></div>
+
+<hr>
+
+<h2 id="profesorSeleccionado"></h2>
+
+<div id="comentarios"></div>
+
+<h3>Agregar comentario</h3>
+
+<select id="rating">
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="2">⭐⭐</option>
+<option value="1">⭐</option>
+</select>
+
+<textarea id="comentario" placeholder="Escribe tu comentario"></textarea>
+
+<button onclick="agregarComentario()">Enviar comentario</button>
+
+<div style="background-color: #f8f9fa; border-left: 5px solid #007bff; padding: 15px; border-radius: 5px; font-family: sans-serif; color: #333; margin: 20px 0;">
+  <strong style="color: #007bff;">Comunidad Profesional:</strong>
+  <h4 style="margin-top: 5px; font-size: 0.95rem;">
+    Te invitamos a compartir reseñas constructivas. El uso de lenguaje ofensivo, difamatorio o ataques personales resultará en la eliminación del comentario. 
+    <strong>Nota:</strong> Esta plataforma no se hace responsable por las opiniones vertidas por los usuarios.
+    
+    <hr>
+    
+    <strong>Aviso legal:</strong> Las opiniones expresadas son responsabilidad exclusiva de sus autores. 
+    Por favor, mantén un tono <strong>respetuoso y objetivo</strong> para ayudar a otros estudiantes de forma profesional.
+  </h4>
+</div>
+
+
+    <script src="js/profesores.js"></script>
+    <footer>
+       <p>&copy; 2025 GuiaUNI. Todos los derechos reservados. Esta no es una página oficial de la UASD. Fue creada por estudiantes con el propósito de apoyar a sus compañeros. </p>
+    </footer>
+</body>
+</html>

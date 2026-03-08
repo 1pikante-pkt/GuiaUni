@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Buscar Aula</title>
+</head>
+<link rel="icon" href="logoGUIAUNI.png" type="image/png">
+
+<header>
+    <a href="index.html">
+    <img src="logoGUIAUNI.png" alt="logo oficial " width="150">
+    </a>
+</header>
+<body>
+    
+
+<h2>Buscar Aula</h2>
+
+<select id="facultad">
+  <option value="">Seleccione una facultad</option>
+</select>
+
+<input 
+  type="text" 
+  id="aula"
+  placeholder="Ej: A-101"
+  disabled
+>
+
+<ul id="resultados"></ul>
+
+<div id="mapa">
+  <img id="imagenMapa" src="" alt="" hidden>
+</div>
+
+<script src="js/buscador.js"></script>
+
+
+
+<script>
+
+const datos = {
+  "Facultad de Humanidades": [
+    "A-101", "A-102", "A-103", "Laboratorio 1", "Laboratorio 2"
+  ],
+  "Facultad de Ciencias": [
+    "B-201", "B-202", "B-203"
+  ],
+  "Facultad de Ciencias Económicas y Sociales": [
+    "C-301", "C-302", "C-303"
+  ],
+  " Facultad de Ciencias Jurídicas y Políticas": [
+    "D-110", "D-111"
+  ],
+  
+  "Facultad de Ingenieria y Arquitectura": [
+    "A-101", "A-102", "A-103", "Laboratorio 1", "Laboratorio 2"
+  ],
+  "Facultad de Ciencias de la Salúd": [
+    "A-101", "A-102", "A-103", "Laboratorio 1", "Laboratorio 2"
+  ],
+  "Facultad de Ciencias Agronómicas y Veterinarias": [
+    "A-101", "A-102", "A-103", "Laboratorio 1", "Laboratorio 2"
+  ],
+  "Facultad de Artes": [
+    "A-101", "A-102", "A-103", "Laboratorio 1", "Laboratorio 2"
+  ],
+  "Facultad de Ciencias de la Educación": [
+    "A-101", "A-102", "A-103", "Laboratorio 1", "Laboratorio 2"
+  ]
+}
+</script>
+
+
+<script>
+        const selectFacultad = document.getElementById("facultad");
+        const inputAula = document.getElementById("aula");
+        const resultados = document.getElementById("resultados");
+
+        // Llenar facultades
+        Object.keys(datos).forEach(fac => {
+        const option = document.createElement("option");
+        option.value = fac;
+        option.textContent = fac;
+        selectFacultad.appendChild(option);
+        });
+
+        // Cuando se selecciona facultad
+        selectFacultad.addEventListener("change", () => {
+        inputAula.value = "";
+        resultados.innerHTML = "";
+
+        if (selectFacultad.value === "") {
+            inputAula.disabled = true;
+            return;
+        }
+
+        inputAula.disabled = false;
+        });
+
+        // Buscar aula
+        inputAula.addEventListener("input", () => {
+        const facultad = selectFacultad.value;
+        const texto = inputAula.value.toLowerCase();
+        resultados.innerHTML = "";
+
+        if (texto === "") return;
+
+        datos[facultad]
+            .filter(aula => aula.toLowerCase().includes(texto))
+            .forEach(aula => {
+            const li = document.createElement("li");
+            li.textContent = `Aula: ${aula} | Facultad: ${facultad}`;
+            resultados.appendChild(li);
+            });
+        });
+</script>
+
+
+
+
+
+
+    <footer>
+        <p>&copy; 2025 GuiaUNI. Todos los derechos reservados. Esta no es una página oficial de la UASD. Fue creada por estudiantes con el propósito de apoyar a sus compañeros. </p>
+    </footer>
+</body>
+</html>
